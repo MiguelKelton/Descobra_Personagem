@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Clover - Termo</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #121213;
+            color: #d7dadc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        h1 {
+            border-bottom: 2px solid #538d4e;
+            padding-bottom: 10px;
+        }
+
+        /* --- Formulário de Tentativa --- */
+        #game-form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        #guess-input {
+            font-size: 1.2rem;
+            padding: 10px;
+            background-color: #3a3a3c;
+            border: 2px solid #3a3a3c;
+            color: white;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            text-transform: uppercase; /* Força o texto a ser maiúsculo */
+        }
+        #guess-button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            background-color: #538d4e;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+            font-weight: bold;
+        }
+        #guess-button:disabled {
+            background-color: #555;
+            cursor: not-allowed;
+        }
+
+        /* --- Grade de Resultados --- */
+        #guesses-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        /* Linha do Cabeçalho (Títulos) */
+        .guess-row.header {
+            font-weight: bold;
+            background-color: #3a3a3c;
+        }
+        
+        /* Linha de uma tentativa */
+        .guess-row {
+            display: grid;
+            grid-template-columns: 150px 180px 180px 100px 100px 100px;
+            gap: 10px;
+        }
+        
+        /* Célula individual (ex: Esquadrão, Magia, etc.) */
+        .guess-cell {
+            padding: 15px 10px;
+            border: 2px solid #3a3a3c;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1a1a1b;
+        }
+
+        /* --- Cores do Feedback --- */
+        
+        /* CERTO (Verde) */
+        .status-correct {
+            background-color: #538d4e; /* Verde */
+            border-color: #538d4e;
+        }
+        
+        /* PARCIAL (Amarelo) - Para Idade/Grimório */
+        .status-partial {
+            background-color: #b59f3b; /* Amarelo */
+            border-color: #b59f3b;
+        }
+        
+        /* ERRADO (Cinza/Vermelho) */
+        .status-incorrect {
+            background-color: #3a3a3c; /* Cinza Escuro */
+            border-color: #3a3a3c;
+            opacity: 0.7;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Black Clover - Termo</h1>
+    
+    <form id="game-form">
+        <input type="text" id="guess-input" list="personagens-list" placeholder="Digite um personagem..." autocomplete="off">
+        <button type="submit" id="guess-button">Adivinhar</button>
+    </form>
+    
+    <datalist id="personagens-list"></datalist>
+
+    <div id="guesses-grid">
+        <div class="guess-row header">
+            <div class="guess-cell">Personagem</div>
+            <div class="guess-cell">Esquadrão</div>
+            <div class="guess-cell">Tipo de Magia</div>
+            <div class="guess-cell">Espécie</div>
+            <div class="guess-cell">Grimório</div>
+            <div class="guess-cell">Idade</div>
+        </div>
+        
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
